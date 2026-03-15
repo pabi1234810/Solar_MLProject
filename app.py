@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
+import os
 
 model  = pickle.load(open('models/best_model.pkl', 'rb'))
 scaler = pickle.load(open('models/scaler.pkl',     'rb'))
@@ -34,9 +35,17 @@ sample = pd.DataFrame({
     'Tilt Angle (°)':    [ 35,  40,   30,  45,  35,  38,  42,   28,  50,  36],
 })
 
-# Predict efficiency for all sample rows
 scaled   = scaler.transform(sample.values)
 eff_vals = model.predict(scaled)
 sample['Predicted Efficiency'] = [f"{e:.4f} ({e*100:.1f}%)" for e in eff_vals]
 
 st.dataframe(sample, use_container_width=True)
+
+# ── Feature Importance Chart ──────────────────────────────
+st.markdown("---")
+st.subheader("Feature Importance")
+
+if os.path.exists('outputs/feature_importance.png'):
+    st.image('outputs/feature_importance.png', use_container_width=True)
+else:
+    st.info("Feature importance chart not available in deployed version. Run feature_importance.py locally to generate it.")
