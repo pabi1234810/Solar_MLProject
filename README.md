@@ -4,8 +4,8 @@ A machine learning web app that predicts the thermal efficiency of a solar colle
 
 ---
 
-## Live Demo
-[Click here to open the app](https://pabi1234810-solar-mlproject-app.streamlit.app)
+## 🚀 Live Demo
+[Click here to open the app](https://solarmlproject-hjxlz6vz2dngezdi82wvbf.streamlit.app/)
 
 ---
 
@@ -57,12 +57,15 @@ SolarMLProject/
 │   └── scaler.pkl           ← saved MinMaxScaler
 ├── outputs/
 │   └── feature_importance.png
+├── .streamlit/
+│   └── config.toml
 ├── generate_data.py         ← generates dataset using HWB model
 ├── train_model.py           ← trains and compares ML models
 ├── tune_model.py            ← hyperparameter tuning
 ├── evaluate.py              ← evaluation plots
 ├── feature_importance.py    ← feature importance chart
 ├── app.py                   ← Streamlit web app
+├── runtime.txt              ← pins Python 3.11
 └── requirements.txt
 ```
 
@@ -141,5 +144,5 @@ streamlit run app.py
 
 ## Author
 
-**Pabitra Chakraborty**  
+**Pabitra Chakraborty**
 Mechanical Engineering, Jadavpur University (2023-2027)
